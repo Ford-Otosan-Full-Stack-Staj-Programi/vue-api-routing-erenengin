@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="goToHomePage" class="back-button">Go Back</button>
     <div v-if="character" class="character-card">
       <img :src="character.image" alt="Character Image">
       <ul>
@@ -34,6 +35,24 @@
   margin-bottom: 10px;
   font-size: 16px;
 }
+
+.back-button {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.back-button i {
+  margin-right: 5px;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
 </style>
 <script>
 export default {
@@ -57,7 +76,10 @@ export default {
         
           this.character = data;
         
-    }
+    },
+        goToHomePage() {
+      this.$router.push('/'); 
+    },
   }
 };
 </script>
